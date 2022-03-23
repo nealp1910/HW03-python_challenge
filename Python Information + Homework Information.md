@@ -1,12 +1,12 @@
-Goals Not Directly Python
+# Goals Not Directly Python
 1.  Basics of Terminal so you can navigate to python files located in folders (Day1)
 1.  Update repository files from command line (Day 1)
 1.  Clone GitHub folder and add files and push content back to GitHub.  Similar to Homework process (Day3)
 ​
 ​
 ​
-Goals of Each Day  
-Day 1:
+# Goals of Each Day  
+## Day 1:
 1.  Create conda environment and activate it  
 1.  Run python files from terminal using `python <filename>`
 1.  Setting Variables and using the print statement.  Note:  f-strings are the most widely used method i.e. `print(f"Text like you want to see it and add variable content with curly brackets {variable}")`
@@ -16,20 +16,21 @@ Day 1:
 1.  Data Structures - List (aka [ ]  ) versus Tuple (aka ( )  ).  We will add to this sets and dictionaries and these are the 4 data structures in python. Here is a good [document](https://docs.python.org/3/tutorial/datastructures.html#).
 1.  Loops - for/while
 ​
-Day 2:  
+## Day 2:  
 1.  Loop Practice
 1.  Reading/Writing Files using `with open` and `csv.reader` and `csv.writer`
 1.  Zipping Data 
 1.  Reading, Storing, and Manipulating Data - Activity 12 is Similar to Homework.
 1.  Functions that only print message to console (not very helpful but an introduction)
 ​
-Day 3:
+## Day 3:
 1.  Dictionaries
 1.  Making lists from lists (list comprehensions)
 1.  Functions that use a return (very helpful)
 1.  Examples of caculations and multiple concepts combined.
 ​
-Homework:
+# Homework Setup:
+## Create Repo and Clone
 1.  Make repo (Day 3 Topic):
     *  Go to GitHub and click on the Cat logo in the upper left corner.  Find the Green button that says `New`
     *  On the Create a new repository page.  Fill in the repo name, give it a short description (can be changed later), select Public, select Add a README, select Add .gitignore, in the new dropdown select Python.
@@ -40,18 +41,19 @@ Homework:
     *  There are three link options (HTTPS, SSH, GithubCLI), make sure to click the SSH tab.  The link will then look like `git@github.com:<username>/<repo name>.git`.
     *  Copy the link and go to your desktop and right click and choose 'Git Bash Here' or 'Open terminal in Folder'.  
     *  In this terminal type, `git clone <paste link here>`.  This downloads a folder on your desktop that is linked to the online repo.
+## Setup Files on Local Machine 
 1.  Open this folder on your desktop like you normally would.  Copy the homework files into this folder.
 1.  Have your file structure inside this repo look like this for the python homework:  
 ```
       python_challenge 
-            |__ PyBank 
+            |__ PyBank/ 
             |    |__ Analysis/ 
             |    |__ Resources/  
             |    |   |__ budget_data.csv
             |    |
             |    |__ main.py
             |
-            |__ PyPoll  
+            |__ PyPoll/  
             |    |__ Analysis/ 
             |    |__ Resources/  
             |    |   |__ election_data.csv
@@ -62,6 +64,7 @@ Homework:
             |__ .gitignore
 ​
 ```
+#  Homework Advice
 1.  The key concepts I would work on understanding that apply for the homework are:  
     *  Prompts - Day 1, Activity 4
     *  Conditionals - Day 1, Acitivity 8
@@ -105,3 +108,31 @@ The final output of your script should look similar to the following:
   Greatest Increase in Profits: Aug-16 ($1862002)
   Greatest Decrease in Profits: Feb-14 ($-1825558)
   ```
+​
+## Push Repo to GitHub 
+After you get your initial files added to your repo folder then you can update your online GitHub repo.
+**`Any time you make some significant changes then you should do the following.`**  This is part of the documention process and part of the file backup process.  Every 'commit' saves a snapshot of your files.
+​
+1.  Navigate to the top level of your repo folder.
+1.  The easiest way to do this is by right clicking on the repo folder.  If you are in the right location on your terminal then by typing `ls` should show you your folders and the README.md and .gitiginore file.  This inidcates you are inside your repo folder at the top level.  
+1.  At this top level location do the following in terminal:  
+    * `git status`
+    * `git add .`
+    * `git commit -m "what is being added/changed"`
+    * `git push origin main`
+1.  `git status` is used to see what changes are going to be made - what files need to be tracked, what changes have occurred, etc.
+​
+# Common Issues
+## Running Files
+1.  To run a python file, you need to run it from terminal inside the folder where the .py file is located.  So to run `main.py` based on the above diagram for `PyPoll` then I would need to be in the the following folder `python_challenge/PyPoll`.  I could use `cd` in termainl to get tot his folder or I could right click on PyPoll and open the terminal.  Now, I could run `python main.py` and it should run.
+1.  If a module (aka `import os`) is not found then the error message will provide a message about module XX not found.  In the first week of python we are not using any non-standard, pre-installed modules.  The three modules we used (os, csv, random) should not come back with any errors.
+1.  Python is very critical about spacing.  Whenever you use a for/while/if then you must indent with a tab and anything that is part of that loop must be spaced the same way.  So all operations inside a for loop need tabbed in once.  If we align code directly under the for loop without the tab then it would not be inside the for loop - it acts as if it occurs after the for loop is complete.
+​
+## List Operations
+1.  Here are common functions that can be used on lists:  sorted(), sum(), max(), min(), len().
+1.  Some less used functions for lists are:
+  *  return objects:  reversed(), filter(), map()
+  *  only work on lists of booleans:  all(), any()
+  *  not sure I have ever used these on lists:  slice(), next().  
+     *  There are easier ways than using slice(), next() with lists.
+* Here is where I found the commands:  https://www.w3schools.com/python/python_ref_functions.asp.  I am searching this list for commands that are iterable, or act on objects or directly say it is used on lists.  Click the function to see a simple example.
