@@ -65,7 +65,7 @@ print("-------------------------")
 print("Total Votes: " + str(count))
 print("-------------------------")
 for i in range(len(candidates)):
-    print(f"{candidates[i]}: {str(percent[i])} ({str(total_votes[i])})")
+    print(f"{candidates[i]}: {str(percent[i])}% ({str(total_votes[i])})")
 print("-------------------------")
 print("Winner: " + str(candidate_winner))
 print("-------------------------")
@@ -77,7 +77,7 @@ with open(output_path, 'w') as text:
     text.write("-------------------------\n")
     text.write("Total Votes: " + str(count) + "\n")
     for i in range(len(candidates)):
-        text.write(f"{candidates[i]}: {str(percent[i])} ({str(total_votes[i])})" + "\n")
+        text.write(f"{candidates[i]}: {str(percent[i])}% ({str(total_votes[i])})" + "\n")
     text.write("-------------------------\n")
     text.write("Winner: " + str(candidate_winner) + "\n")
     text.write("-------------------------")
