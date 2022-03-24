@@ -64,10 +64,20 @@ print("Election Results")
 print("-------------------------")
 print("Total Votes: " + str(count))
 print("-------------------------")
-
 for i in range(len(candidates)):
     print(f"{candidates[i]}: {str(percent[i])} ({str(total_votes[i])})")
-
 print("-------------------------")
 print("Winner: " + str(candidate_winner))
 print("-------------------------")
+
+# to write to a text file in Analysis folder. use \n for new line
+output_path = os.path.join("Analysis", "PyPoll_analysis.txt")
+with open(output_path, 'w') as text:
+    text.write("Election Results\n")
+    text.write("-------------------------\n")
+    text.write("Total Votes: " + str(count) + "\n")
+    for i in range(len(candidates)):
+        text.write(f"{candidates[i]}: {str(percent[i])} ({str(total_votes[i])})" + "\n")
+    text.write("-------------------------\n")
+    text.write("Winner: " + str(candidate_winner) + "\n")
+    text.write("-------------------------")

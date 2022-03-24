@@ -36,7 +36,7 @@ with open(csvpath) as csvfile:
 
     for row in csvreader:
         #print(row) - to check that I am able to read the csv file in terminal
-        count = count + 1
+        count += 1
         #Append list for months and profit
         months.append(row[0])
         profit.append(row[1])
@@ -72,7 +72,7 @@ with open(csvpath) as csvfile:
     print("Greatest Decrease in Profits:" + str(decrease_date) + " ($" + str(greatest_decrease) + ")")
 
 #to write to a text file in Analysis Folder. (Use \n for new line)
-output_path = os.path.join("Analysis", "analysis.txt")
+output_path = os.path.join("Analysis", "PyBank_analysis.txt")
 with open(output_path, 'w') as text:
     text.write("Financial Analysis\n")
     text.write("--------------------------------------\n")
