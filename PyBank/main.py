@@ -23,8 +23,6 @@ csvpath = os.path.join('Resources', 'budget_data.csv')
 profit = []
 changes = []
 months = []
-
-#variables
 count = 0
 total_profit = 0
 profit_change = 0
