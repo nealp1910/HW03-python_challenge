@@ -23,15 +23,17 @@ csvpath = os.path.join('Resources', 'budget_data.csv')
 profit = []
 changes = []
 months = []
-count = 0
+count = 1
 total_profit = 0
 profit_change = 0
-initial_profit = 0
 
 # to open and read csv file
 with open(csvpath) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
     csv_header = next(csvreader)
+    first_row = next(csvreader)
+    initial_profit = int(first_row[1])
+    total_profit = initial_profit
     #print(f'CSV Header: {csv_header}') - to read out the headers in the terminal 
 
     for row in csvreader:
@@ -52,7 +54,9 @@ with open(csvpath) as csvfile:
         initial_profit = final_profit
 
         # Average Change for profits
-        average_change = (profit_change / count)
+        average_change = (profit_change / (count-1))
+        average_change = round(average_change, 2)
+
 
         #finding max and min for the profits
         greatest_increase = max(changes)
@@ -67,7 +71,7 @@ with open(csvpath) as csvfile:
     print("--------------------------------------------")
     print("Total Months: " + str(count))
     print("Total: $", str(total_profit))
-    print("Average Change: $" + str(int(average_change)))
+    print("Average Change: $" + str((average_change)))
     print("Greatest Increase in Profits:" + str(increase_date) + " ($" + str(greatest_increase) + ")")
     print("Greatest Decrease in Profits:" + str(decrease_date) + " ($" + str(greatest_decrease) + ")")
 
@@ -78,6 +82,6 @@ with open(output_path, 'w') as text:
     text.write("--------------------------------------\n")
     text.write("Total Months: " + str(count) + "\n")
     text.write("Total: $" + str(total_profit) + "\n")
-    text.write("Average Change: $" + str(int(average_change)) + "\n")
+    text.write("Average Change: $" + str((average_change)) + "\n")
     text.write("Greatest Increase in Profits: " + str(increase_date) + " ($" + str(greatest_increase) + ")\n")
     text.write("Greatest Decrease in Profits: " + str(decrease_date) + " ($" + str(greatest_decrease) + ")\n")
